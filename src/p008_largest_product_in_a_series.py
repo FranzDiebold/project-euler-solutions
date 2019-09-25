@@ -30,7 +30,9 @@ Find the thirteen adjacent digits in the 1000-digit number that
 have the greatest product. What is the value of this product?
 """
 
-from typing import Tuple, Iterable
+from typing import Tuple
+from functools import reduce
+import operator
 
 
 def get_n_digit_tuples(number_string: str, num_digits: int) -> Tuple[int, ...]:
@@ -40,14 +42,6 @@ def get_n_digit_tuples(number_string: str, num_digits: int) -> Tuple[int, ...]:
         yield tuple(int(s) for s in tuple_string)
 
 
-def _product(numbers: Iterable[int]) -> int:
-    """Get the product of a given number iterable `numbers`."""
-    product = 1
-    for num in numbers:
-        product *= num
-    return product
-
-
 def get_max_n_digit_tuple_product(
         number_string: str, num_digits: int
 ) -> Tuple[Tuple[int, ...], int]:
@@ -55,7 +49,7 @@ def get_max_n_digit_tuple_product(
     max_product = - 1
     max_tuple = None
     for n_digit_tuple in get_n_digit_tuples(number_string, num_digits):
-        product = _product(n_digit_tuple)
+        product = reduce(operator.mul, n_digit_tuple, 1)
         if product > max_product:
             max_product = product
             max_tuple = n_digit_tuple
