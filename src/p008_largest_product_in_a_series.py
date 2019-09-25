@@ -37,7 +37,7 @@ def get_n_digit_tuples(number_string: str, num_digits: int) -> Tuple[int, ...]:
     """Get `num_digits`-digit tuples from a given `number_string`."""
     for i in range(len(number_string) - num_digits + 1):
         tuple_string = number_string[i:i + num_digits]
-        yield tuple(map(lambda s: int(s), list(tuple_string)))
+        yield tuple(int(s) for s in tuple_string)
 
 
 def _product(numbers: Iterable[int]) -> int:
