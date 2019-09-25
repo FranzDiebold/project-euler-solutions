@@ -20,6 +20,6 @@ I am always happy to learn! So if you have any comments or remarks on the code o
 
 ## About the code
 All solutions:
-- Are written [Python 3](https://www.python.org).
+- Are written in [Python 3.7](https://www.python.org).
 - Are annotated with type hints according to [PEP-484](https://www.python.org/dev/peps/pep-0484/).
 - Follow the [Google Python Style Guide](http://google.github.io/styleguide/pyguide.html).
