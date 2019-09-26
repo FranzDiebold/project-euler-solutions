@@ -1,5 +1,5 @@
 """
-Prime factors utility function.
+Prime number utility functions.
 """
 
 from typing import Iterator, Dict

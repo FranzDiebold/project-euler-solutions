@@ -106,37 +106,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 53503534226472524250874054075591789781264330331690
 """
 
-from typing import Iterable
-
-
-def calculate_large_sum(number_strings: Iterable[str]) -> str:
-    """Calculate sum of large numbers.
-
-    Args:
-        number_strings: iterable of numbers as strings to sum up.
-    Returns:
-        The sum of the numbers as string.
-    """
-    large_sum = ''
-    new_digit = True
-    digit_idx = 1
-    remainder = 0
-    while new_digit:
-        new_digit = False
-        current_sum_digit = remainder
-        for number in number_strings:
-            try:
-                digit = int(number[-digit_idx])
-                new_digit = True
-            except IndexError:
-                digit = 0
-            current_sum_digit += digit
-        large_sum = str(current_sum_digit % 10) + large_sum
-        remainder = current_sum_digit // 10
-        digit_idx += 1
-    if remainder:
-        large_sum = str(remainder) + large_sum
-    return large_sum
+from src.common.calculations import calculate_large_sum
 
 
 def main() -> None:
