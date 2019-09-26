@@ -2,7 +2,7 @@
 Prime factors utility function.
 """
 
-from typing import Iterator
+from typing import Iterator, Dict
 import math
 
 
@@ -17,6 +17,24 @@ def get_prime_factors(num: int) -> Iterator[int]:
         else:
             i += 1
     yield num
+
+
+def get_prime_factors_map(num: int) -> Dict[int, int]:
+    """Get prime factors map.
+
+    For the input number `60`, the output should be:
+    ```
+    {
+        2: 2,
+        3: 1,
+        5: 1,
+    }
+    ```
+    """
+    prime_factors_map = {}
+    for prime in get_prime_factors(num):
+        prime_factors_map[prime] = prime_factors_map.get(prime, 0) + 1
+    return prime_factors_map
 
 
 def is_prime(num: int) -> bool:

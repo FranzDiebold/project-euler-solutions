@@ -8,33 +8,14 @@ What is the smallest positive number that
 is evenly divisible by all of the numbers from 1 to 20?
 """
 
-from typing import Dict
-from common.primes import get_prime_factors
-
-
-def _get_prime_factors_map(num: int) -> Dict[int, int]:
-    """Get prime factors map.
-
-    For the input number `60`, the output should be:
-    ```
-    {
-        2: 2,
-        3: 1,
-        5: 1,
-    }
-    ```
-    """
-    prime_factors_map = {}
-    for prime in get_prime_factors(num):
-        prime_factors_map[prime] = prime_factors_map.get(prime, 0) + 1
-    return prime_factors_map
+from common.primes import get_prime_factors_map
 
 
 def get_smallest_multiple(max_number: int) -> int:
     """Get smallest positive number, that is evenly divisible from `1` to `max_number`."""
     smallest_multiple_prime_factors_map = {}
     for i in range(2, max_number + 1):
-        prime_factors_map = _get_prime_factors_map(i)
+        prime_factors_map = get_prime_factors_map(i)
         for prime, num in prime_factors_map.items():
             smallest_multiple_prime_factors_map[prime] = max(
                 smallest_multiple_prime_factors_map.get(prime, 0),
