@@ -25,7 +25,7 @@ from typing import Iterator, Tuple
 from functools import reduce
 import operator
 
-from common.primes import get_prime_factors_map
+from src.common.primes import get_prime_factors_map
 
 
 def get_triangle_numbers() -> Iterator[int]:

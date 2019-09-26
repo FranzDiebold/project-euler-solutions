@@ -8,7 +8,7 @@ What is the smallest positive number that
 is evenly divisible by all of the numbers from 1 to 20?
 """
 
-from common.primes import get_prime_factors_map
+from src.common.primes import get_prime_factors_map
 
 
 def get_smallest_multiple(max_number: int) -> int:

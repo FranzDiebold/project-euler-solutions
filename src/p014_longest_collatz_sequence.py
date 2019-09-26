@@ -47,8 +47,7 @@ def get_longest_collatz_sequence_starting_number_and_length(
             if number in length_memoizer:
                 length += length_memoizer[number]
                 break
-            else:
-                length += 1
+            length += 1
         length_memoizer[starting_number] = length
 
         if length > max_length:
