@@ -34,3 +34,26 @@ def calculate_large_sum(number_strings: Iterable[str]) -> str:
         large_sum = str(remainder) + large_sum
 
     return large_sum.lstrip('0') or '0'
+
+
+def _multiply_large_number_and_digit(number: str, digit: int) -> str:
+    """Multiply a large number (as string) and a digit."""
+    large_product = ''
+    remainder = 0
+    for num_digit in reversed(number):
+        current_product_digit = remainder + int(num_digit) * digit
+        large_product = str(current_product_digit % 10) + large_product
+        remainder = current_product_digit // 10
+    if remainder:
+        large_product = str(remainder) + large_product
+    return large_product
+
+
+def calculate_large_product(number1: str, number2: str) -> str:
+    """Multiply two large numbers given as string. The result will be a string as well."""
+    partial_products = []
+    for digit_idx, digit_value in enumerate(reversed(number2)):
+        partial_product = _multiply_large_number_and_digit(number1, int(digit_value)) + \
+            ('0' * digit_idx)
+        partial_products.append(partial_product)
+    return calculate_large_sum(partial_products)
