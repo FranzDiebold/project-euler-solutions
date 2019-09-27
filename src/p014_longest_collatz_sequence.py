@@ -36,7 +36,10 @@ def get_collatz_sequence(number: int) -> Iterator[int]:
 def get_longest_collatz_sequence_starting_number_and_length(
         starting_number_threshold: int
 ) -> Tuple[int, int]:
-    """Get the starting number and length of the longest Collatz sequence."""
+    """Get the starting number and length of the longest Collatz sequence.
+
+    Solution idea: Use memoization.
+    """
     length_memoizer = {}
 
     max_starting_number = None

@@ -39,7 +39,10 @@ from typing import Iterable, Tuple
 
 
 def get_maximum_path(tree_level_strings: Iterable) -> Tuple[int, Iterable[int]]:
-    """Get maximum path value and maximum path for a given tree, represented as level strings."""
+    """Get maximum path value and maximum path for a given tree, represented as level strings.
+
+    Solution idea: Compute maximum path from *bottom up*. Hence, the time complexity is linear.
+    """
     tree_levels = [
         [int(number_string) for number_string in tree_level_string.split()] \
             for tree_level_string in tree_level_strings
