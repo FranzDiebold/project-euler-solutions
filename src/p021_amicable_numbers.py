@@ -15,26 +15,8 @@ Evaluate the sum of all the amicable numbers under 10000.
 """
 
 from typing import Iterable, Tuple
-import math
 
-
-def divisors(number: int) -> Iterable[int]:
-    """Get proper divisors for given number `number`.
-
-    Example:
-    220 -> [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110]
-    The numbers may be in a random order.
-    """
-    yield 1
-    for i in range(2, math.floor(math.sqrt(number))):
-        if number % i == 0:
-            yield i
-            yield number // i
-
-
-def get_sum_of_divisors(number: int) -> int:
-    """Get sum of proper divisors of number `number`."""
-    return sum(divisors(number))
+from src.common.divisors import get_sum_of_divisors
 
 
 def get_amicable_pairs(threshold: int) -> Iterable[Tuple[int, int]]:
