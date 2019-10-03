@@ -64,3 +64,12 @@ def calculate_large_product(number1: str, number2: str) -> str:
             ('0' * digit_idx)
         partial_products.append(partial_product)
     return calculate_large_sum(partial_products)
+
+
+def calculate_large_power(base: int, exponent: int) -> str:
+    """Calculate `base` to the power of `exponent` for large numbers given as strings."""
+    base = str(base)
+    power = '1'
+    for _ in range(exponent):
+        power = calculate_large_product(power, base)
+    return power
