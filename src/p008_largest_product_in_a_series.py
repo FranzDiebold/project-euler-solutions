@@ -31,8 +31,8 @@ have the greatest product. What is the value of this product?
 """
 
 from typing import Tuple
-from functools import reduce
-import operator
+
+from src.common.calculations import calculate_product
 
 
 def get_n_digit_tuples(number_string: str, num_digits: int) -> Tuple[int, ...]:
@@ -49,7 +49,7 @@ def get_max_n_digit_tuple_product(
     max_product = - 1
     max_tuple = None
     for n_digit_tuple in get_n_digit_tuples(number_string, num_digits):
-        product = reduce(operator.mul, n_digit_tuple, 1)
+        product = calculate_product(n_digit_tuple)
         if product > max_product:
             max_product = product
             max_tuple = n_digit_tuple

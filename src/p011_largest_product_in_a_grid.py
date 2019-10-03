@@ -33,8 +33,8 @@ in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 # pylint: disable=invalid-name
 
 from typing import Tuple, List, Iterator
-from functools import reduce
-import operator
+
+from src.common.calculations import calculate_product
 
 
 def _convert_number_strings_to_matrix(number_strings: Tuple[str]) -> List[List[int]]:
@@ -75,7 +75,7 @@ def get_max_n_number_tuple_product(
     max_product = - 1
     max_tuple = None
     for n_number_tuple in _get_adjacent_numbers_tuples(matrix, num_adjacent_numbers):
-        product = reduce(operator.mul, n_number_tuple, 1)
+        product = calculate_product(n_number_tuple)
         if product > max_product:
             max_product = product
             max_tuple = n_number_tuple

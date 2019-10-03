@@ -3,6 +3,13 @@ Calculation utility functions.
 """
 
 from typing import Iterable
+from functools import reduce
+import operator
+
+
+def calculate_product(numbers: Iterable[int]) -> int:
+    """Calculate the product of a given iterable of integer numbers."""
+    return reduce(operator.mul, numbers, 1)
 
 
 def calculate_large_sum(number_strings: Iterable[str]) -> str:

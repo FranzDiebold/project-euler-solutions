@@ -22,10 +22,9 @@ What is the value of the first triangle number to have over five hundred divisor
 """
 
 from typing import Iterator, Tuple
-from functools import reduce
-import operator
 
 from src.common.primes import get_prime_factors_map
+from src.common.calculations import calculate_product
 
 
 def get_triangle_numbers() -> Iterator[int]:
@@ -44,7 +43,7 @@ def get_number_of_divisors(num: int) -> int:
     # the number of divisors is the product of each of the prime factor exponents plus one
     # https://math.stackexchange.com/questions/422867/how-many-divsors-of-4725-are-there/422881#422881
     prime_exponents = [prime_exponent + 1 for prime_exponent in prime_factors_map.values()]
-    return reduce(operator.mul, prime_exponents, 1)
+    return calculate_product(prime_exponents)
 
 
 # pylint: disable=inconsistent-return-statements
