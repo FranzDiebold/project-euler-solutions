@@ -6,20 +6,23 @@ from typing import Iterator, Dict
 import math
 
 
-def get_prime_factors(num: int) -> Iterator[int]:
-    """Get prime factors of a given number `num` as generator."""
+def get_prime_factors(number: int) -> Iterator[int]:
+    """Get prime factors of a given number `number` as generator."""
+    if number < 0:
+        raise ValueError('Negative numbers are not supported.')
+
     i = 2
-    while i <= math.floor(math.sqrt(num)):
-        if num % i == 0:
+    while i <= math.floor(math.sqrt(number)):
+        if number % i == 0:
             yield i
-            num //= i
+            number //= i
             i = 2
         else:
             i += 1
-    yield num
+    yield number
 
 
-def get_prime_factors_map(num: int) -> Dict[int, int]:
+def get_prime_factors_map(number: int) -> Dict[int, int]:
     """Get prime factors map.
 
     For the input number `60`, the output should be:
@@ -32,12 +35,15 @@ def get_prime_factors_map(num: int) -> Dict[int, int]:
     ```
     """
     prime_factors_map = {}
-    for prime in get_prime_factors(num):
+    for prime in get_prime_factors(number):
         prime_factors_map[prime] = prime_factors_map.get(prime, 0) + 1
     return prime_factors_map
 
 
-def is_prime(num: int) -> bool:
-    """Check if the given number `num` is a prime number."""
-    prime_factors = get_prime_factors(num)
-    return next(prime_factors) == num
+def is_prime(number: int) -> bool:
+    """Check if the given number `number` is a prime number."""
+    try:
+        prime_factors = get_prime_factors(number)
+        return next(prime_factors) == number
+    except ValueError:
+        return False
