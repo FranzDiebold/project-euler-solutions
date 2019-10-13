@@ -16,7 +16,10 @@ from typing import Set
 
 
 def get_number_of_coin_sums(target_sum: int, coins: Set[int]) -> int:
-    """Get the number of possible coin sums from a coin set `coins` summing up to `target_sum`."""
+    """Get the number of possible coin sums from a coin set `coins` summing up to `target_sum`.
+
+    Solution idea: Use memoization.
+    """
     coins = list(sorted(coins))
     count_memo = {0: {-1: 1}}
     for current_sum in range(target_sum + 1):
@@ -29,7 +32,8 @@ def get_number_of_coin_sums(target_sum: int, coins: Set[int]) -> int:
                     new_sum += coin
                     if new_sum not in count_memo:
                         count_memo[new_sum] = {}
-                    count_memo[new_sum][current_coin_idx] = count_memo[new_sum].get(current_coin_idx, 0) + number_of_coin_sums
+                    count_memo[new_sum][current_coin_idx] = \
+                        count_memo[new_sum].get(current_coin_idx, 0) + number_of_coin_sums
     return sum(count_memo[target_sum].values())
 
 
