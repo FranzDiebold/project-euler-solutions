@@ -11,14 +11,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 from typing import Iterator, Tuple
 from heapq import heappush, heappop
 
-
-def is_palindromic_number(num: int) -> bool:
-    """Check if a number is palindromic number."""
-    num_str = str(num)
-    for i in range(len(num_str) // 2):
-        if num_str[i] != num_str[-1 * (i + 1)]:
-            return False
-    return True
+from src.common.palindromes import is_palindromic_number
 
 
 def _get_lower_diagonal_tuples(tuple_sum: int, max_value: int) -> Iterator[Tuple[int, int]]:
