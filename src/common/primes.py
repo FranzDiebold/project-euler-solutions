@@ -2,7 +2,7 @@
 Prime number utility functions.
 """
 
-from typing import Iterator, Dict
+from typing import Iterator, Dict, Set
 import math
 
 
@@ -47,3 +47,8 @@ def is_prime(number: int) -> bool:
         return next(prime_factors) == number
     except ValueError:
         return False
+
+
+def get_primes_set(threshold: int) -> Set:
+    """Get all prime numbers up to a threshold `threshold` as set."""
+    return {number for number in range(2, threshold) if is_prime(number)}

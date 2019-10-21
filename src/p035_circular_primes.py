@@ -10,14 +10,9 @@ There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73
 How many circular primes are there below one million?
 """
 
-from typing import Set, Iterable
+from typing import Iterable
 
-from src.common.primes import is_prime
-
-
-def _get_primes_set(threshold: int) -> Set:
-    """Get all prime numbers up to a threshold `threshold` as set."""
-    return {number for number in range(2, threshold) if is_prime(number)}
+from src.common.primes import get_primes_set
 
 
 def _get_circular_numbers(number: int) -> Iterable[int]:
@@ -33,7 +28,7 @@ def _get_circular_numbers(number: int) -> Iterable[int]:
 
 def _get_circular_primes(threshold: int) -> Iterable[int]:
     """Get all circular primes up to a threshold `threshold`."""
-    primes = _get_primes_set(threshold)
+    primes = get_primes_set(threshold)
     for prime in primes:
         is_circular_prime = True
         for circular_number in _get_circular_numbers(prime):
