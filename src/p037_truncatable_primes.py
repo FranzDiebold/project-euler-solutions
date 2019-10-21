@@ -15,7 +15,7 @@ NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
 
 from typing import Iterable
 
-from common.primes import get_primes_set
+from src.common.primes import get_primes_set
 
 
 def _get_truncated_numbers(number: int) -> Iterable[int]:
