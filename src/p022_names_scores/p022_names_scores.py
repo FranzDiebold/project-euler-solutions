@@ -14,30 +14,15 @@ So, COLIN would obtain a score of 938 × 53 = 49714.
 What is the total of all the name scores in the file?
 """
 
-from typing import Iterable
-
-
-def get_alphabetical_value(string: str) -> int:
-    """Get alphabetical value of a given string `string`.
-
-    Example: 'COLIN' -> 53 = 3 + 15 + 12 + 9 + 14
-    """
-    return sum([(ord(char) - ord('a') + 1) for char in string.lower()])
-
-
-def get_names_from_file(file_name: str) -> Iterable[str]:
-    """Get names as iterable from file with name `file_name`."""
-    with open(file_name, 'r') as file_object:
-        for line in file_object:
-            for item in line.replace('"', '').lower().split(','):
-                yield item
+from src.common.files import get_items_from_file
+from src.common.strings import get_alphabetical_value
 
 
 def main() -> None:
     """Main function."""
     file_name = 'p022_names_scores/p022_names.txt'
     total_name_scores = 0
-    for idx, name in enumerate(sorted(get_names_from_file(file_name)), 1):
+    for idx, name in enumerate(sorted(get_items_from_file(file_name)), 1):
         total_name_scores += idx * get_alphabetical_value(name)
     print(f'The total of all the name scores in the file "{file_name}" is {total_name_scores:,}.')
 
