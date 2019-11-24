@@ -36,9 +36,9 @@ def _get_pandigital_multiples() -> Iterable[Tuple[int, int, int]]:
             number_str += str(n * number)
             if len(number_str) > 9:
                 break
-            elif len(number_str) < 9:
+            if len(number_str) < 9:
                 continue
-            elif is_pandigital(number_str):
+            if is_pandigital(number_str):
                 yield (number, n, int(number_str))
 
 
