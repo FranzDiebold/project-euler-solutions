@@ -16,15 +16,9 @@ Using words.txt (right click and 'Save Link/Target As...'),
 a 16K text file containing nearly two-thousand common English words, how many are triangle words?
 """
 
-import math
-
 from src.common.files import get_items_from_file
+from src.common.special_numbers import is_triangle_number
 from src.common.strings import get_alphabetical_value
-
-
-def is_triangle_number(number: int) -> bool:
-    """Check if a given number `number` is a triangle number of the form 1/2 * n * (n+1)."""
-    return ((math.sqrt(8*number + 1) - 1) / 2.0).is_integer()
 
 
 def main() -> None:

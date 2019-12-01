@@ -15,20 +15,10 @@ for which their sum and difference are pentagonal and D = |P_k − P_j| is minim
 what is the value of D?
 """
 
-import math
 from typing import Iterable, Tuple
 from heapq import heappush, heappop
 
-
-# pylint: disable=invalid-name
-def _get_pentagonal_number(n: int) -> int:
-    """Get Pentagonal number `P_n=n*(3n−1)/2` for a given number `number`."""
-    return (n * (3*n - 1)) // 2
-
-
-def _is_pentagonal_number(number: int) -> bool:
-    """Check if a given number `number` is a pentagonal number of the form ."""
-    return ((math.sqrt(24*number + 1) + 1) / 6.0).is_integer()
+from src.common.special_numbers import get_pentagonal_number, is_pentagonal_number
 
 
 def _get_sorted_pentagonal_number_pairs() -> Iterable[Tuple[int, int]]:
@@ -38,14 +28,14 @@ def _get_sorted_pentagonal_number_pairs() -> Iterable[Tuple[int, int]]:
     while True:
         _, value = heappop(prio_q)
         j, k = value
-        p_j = _get_pentagonal_number(j)
-        p_k = _get_pentagonal_number(k)
+        p_j = get_pentagonal_number(j)
+        p_k = get_pentagonal_number(k)
         yield (p_j, p_k)
         if j == k - 1:
-            p_new_k = _get_pentagonal_number(k + 1)
+            p_new_k = get_pentagonal_number(k + 1)
             heappush(prio_q, (p_new_k - p_k, (k, k + 1)))
         if j > 1:
-            p_new_j = _get_pentagonal_number(j - 1)
+            p_new_j = get_pentagonal_number(j - 1)
             heappush(prio_q, (p_k - p_new_j, (j - 1, k)))
 
 
@@ -53,7 +43,7 @@ def _get_special_sorted_pentagonal_number_pairs() -> Iterable[Tuple[int, int]]:
     """Get special Pentagonal number pairs (P_j, P_k),
     for which their sum and difference are pentagonal."""
     for p_j, p_k in _get_sorted_pentagonal_number_pairs():
-        if _is_pentagonal_number(p_k + p_j) and _is_pentagonal_number(p_k - p_j):
+        if is_pentagonal_number(p_k + p_j) and is_pentagonal_number(p_k - p_j):
             yield (p_j, p_k)
 
 
