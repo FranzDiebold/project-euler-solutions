@@ -1,6 +1,6 @@
 # [Project Euler](https://projecteuler.net) Solutions
 
-[![solved: 45 problems](https://img.shields.io/badge/solved-45_problems-f93.svg)](./src)
+[![solved: 46 problems](https://img.shields.io/badge/solved-46_problems-f93.svg)](./src)
 ![Python: 3.8](https://img.shields.io/badge/Python-3.8-3776ab.svg)
 [![Build Status](https://travis-ci.com/FranzDiebold/project-euler-solutions.svg?branch=master)](https://travis-ci.com/FranzDiebold/project-euler-solutions)
 [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
