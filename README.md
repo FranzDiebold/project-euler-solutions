@@ -2,7 +2,7 @@
 
 [![solved: 46 problems](https://img.shields.io/badge/solved-46_problems-f93.svg)](./src)
 ![Python: 3.8](https://img.shields.io/badge/Python-3.8-3776ab.svg)
-[![Build Status](https://travis-ci.com/FranzDiebold/project-euler-solutions.svg?branch=master)](https://travis-ci.com/FranzDiebold/project-euler-solutions)
+[![Lint Status](https://github.com/FranzDiebold/project-euler-solutions/workflows/Lint/badge.svg)](https://github.com/FranzDiebold/project-euler-solutions/actions?query=workflow%3A%22Lint%22)
 [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
 
 ## What is [Project Euler](https://projecteuler.net)?
