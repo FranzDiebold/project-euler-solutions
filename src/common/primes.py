@@ -19,7 +19,8 @@ def get_prime_factors(number: int) -> Iterator[int]:
             i = 2
         else:
             i += 1
-    yield number
+    if number > 1:
+        yield number
 
 
 def get_prime_factors_map(number: int) -> Dict[int, int]:
@@ -45,7 +46,7 @@ def is_prime(number: int) -> bool:
     try:
         prime_factors = get_prime_factors(number)
         return next(prime_factors) == number
-    except ValueError:
+    except (ValueError, StopIteration):
         return False
 
 
