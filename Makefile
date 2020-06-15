@@ -1,6 +1,6 @@
 .PHONY: install
 install:
-	pip install -U pylint>=2.4.4
+	pip install -U pylint>=2.5.3
 
 .PHONY: lint
 lint:
