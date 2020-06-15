@@ -30,34 +30,29 @@ Find the thirteen adjacent digits in the 1000-digit number that
 have the greatest product. What is the value of this product?
 """
 
-from typing import Iterator, Tuple
-
-from src.common.calculations import calculate_product
+import pytest
 
 
-def get_n_digit_tuples(number_string: str, num_digits: int) -> Iterator[Tuple[int, ...]]:
-    """Get `num_digits`-digit tuples from a given `number_string`."""
-    for i in range(len(number_string) - num_digits + 1):
-        tuple_string = number_string[i:i + num_digits]
-        yield tuple(int(s) for s in tuple_string)
+def test_get_n_digit_tuples():
+    # arrange
+    from src.p008_largest_product_in_a_series import get_n_digit_tuples
+
+    # act
+    actual_result = get_n_digit_tuples('12345', 3)
+
+    # assert
+    excepted_result = [(1, 2, 3), (2, 3, 4), (3, 4, 5)]
+    for t in excepted_result:
+        assert t == next(actual_result)
+
+    with pytest.raises(StopIteration):
+        next(actual_result)
 
 
-def get_max_n_digit_tuple_product(
-        number_string: str, num_digits: int
-) -> Tuple[Tuple[int, ...], int]:
-    """Get maximum `num_digits` digits tuple product."""
-    max_product = - 1
-    max_tuple = None
-    for n_digit_tuple in get_n_digit_tuples(number_string, num_digits):
-        product = calculate_product(n_digit_tuple)
-        if product > max_product:
-            max_product = product
-            max_tuple = n_digit_tuple
-    return max_tuple, max_product
+def test_get_max_n_digit_tuple_product():
+    # arrange
+    from src.p008_largest_product_in_a_series import get_max_n_digit_tuple_product
 
-
-def main() -> None:
-    """Main function."""
     number_string = (
         '73167176531330624919225119674426574742355349194934'
         '96983520312774506326239578318016984801869478851843'
@@ -80,11 +75,12 @@ def main() -> None:
         '05886116467109405077541002256983155200055935729725'
         '71636269561882670428252483600823257530420752963450'
     )
-    num_digits = 13
-    max_tuple, max_product = get_max_n_digit_tuple_product(number_string, num_digits)
-    print((f'The maximum {num_digits}-digit product is {max_product:,} '
-           f'from the tuple {max_tuple}.'))
 
+    # act
+    actual_max_tuple, actual_max_product = get_max_n_digit_tuple_product(number_string, 4)
 
-if __name__ == '__main__':
-    main()
+    # assert
+    expected_max_tuple = (9, 9, 8, 9)
+    assert actual_max_tuple == expected_max_tuple
+    expected_max_product = 5832
+    assert actual_max_product == expected_max_product
