@@ -27,11 +27,24 @@ All solutions:
 - Are annotated with type hints according to [PEP-484](https://www.python.org/dev/peps/pep-0484/).
 - Follow the [Google Python Style Guide](http://google.github.io/styleguide/pyguide.html).
 
-### Pylint
-
-Install and run Pylint:
+### Install (development) dependencies
 
 ```shell
 make install
+```
+
+### Lint
+
+Run Pylint:
+
+```shell
 make lint
+```
+
+### Test
+
+Run pytest
+
+```shell
+make test
 ```

@@ -48,7 +48,7 @@ def get_number_of_divisors(num: int) -> int:
 
 # pylint: disable=inconsistent-return-statements
 def get_triangle_number_with_min_number_of_divisors(threshold: int) -> Tuple[int, int]:
-    """Generator for triangle numbers and their number of divisors."""
+    """Get the first triangle number with a minimum number of divisors."""
     for triangle_number in get_triangle_numbers():
         number_of_divisors = get_number_of_divisors(triangle_number)
         if number_of_divisors > threshold:
