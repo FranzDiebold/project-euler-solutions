@@ -21,8 +21,8 @@ def test_loop_solution():
     actual_result = loop_solution(10)
 
     # assert
-    excepted_result = 2640
-    assert actual_result == excepted_result
+    expected_result = 2640
+    assert actual_result == expected_result
 
 
 def test_closed_form_solution():
@@ -33,5 +33,5 @@ def test_closed_form_solution():
     actual_result = closed_form_solution(10)
 
     # assert
-    excepted_result = 2640
-    assert actual_result == excepted_result
+    expected_result = 2640
+    assert actual_result == expected_result

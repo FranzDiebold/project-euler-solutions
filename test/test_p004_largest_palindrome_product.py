@@ -18,5 +18,5 @@ def test_get_sorted_product_palindromic_number_tuples():
     actual_result = i * j
 
     # assert
-    excepted_result = 9009
-    assert actual_result == excepted_result
+    expected_result = 9009
+    assert actual_result == expected_result
