@@ -17,5 +17,5 @@ def test_get_nth_prime_number():
     actual_result = get_nth_prime_number(6)
 
     # assert
-    excepted_result = 13
-    assert actual_result == excepted_result
+    expected_result = 13
+    assert actual_result == expected_result

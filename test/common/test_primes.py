@@ -32,7 +32,7 @@ def test_get_prime_factors_map():
     assert actual_prime_factors_map == excepted_prime_factors_map
 
 
-@pytest.mark.parametrize("test_input,expected_result", [
+@pytest.mark.parametrize('test_input,expected_result', [
     (1, False),
     (2, True),
     (3, True),
@@ -62,5 +62,5 @@ def test_get_primes_set():
     actual_result = get_primes_set(100)
 
     # assert
-    excepted_result = set([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
-    assert actual_result == excepted_result
+    expected_result = set([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
+    assert actual_result == expected_result

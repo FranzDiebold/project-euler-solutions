@@ -41,8 +41,8 @@ def test_get_n_digit_tuples():
     actual_result = get_n_digit_tuples('12345', 3)
 
     # assert
-    excepted_result = [(1, 2, 3), (2, 3, 4), (3, 4, 5)]
-    for t in excepted_result:
+    expected_result = [(1, 2, 3), (2, 3, 4), (3, 4, 5)]
+    for t in expected_result:
         assert t == next(actual_result)
 
     with pytest.raises(StopIteration):
