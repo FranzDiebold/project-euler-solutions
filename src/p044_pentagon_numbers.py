@@ -22,7 +22,7 @@ from src.common.special_numbers import get_pentagonal_number, is_pentagonal_numb
 
 
 def _get_sorted_pentagonal_number_pairs() -> Iterable[Tuple[int, int]]:
-    """Get pairs of pentPentagonalagonal numbers, sorted by their difference."""
+    """Get pairs of pentagonal numbers, sorted by their difference."""
     prio_q = []
     heappush(prio_q, (0, (1, 2)))
     while True:
