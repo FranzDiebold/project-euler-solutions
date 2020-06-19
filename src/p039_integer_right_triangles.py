@@ -25,8 +25,8 @@ def is_right_angle_triangle(triangle: Triangle) -> bool:
 
 def _get_triangles_with_perimeter(p: int) -> Iterable[Triangle]:
     """Get triangles with a given perimeter `p`."""
-    for a in range(1, p // 3):
-        for b in range(a, ((p - a - 1) // 2) + 1):
+    for a in range(1, (p // 3) + 1):
+        for b in range(a, ((p - a) // 2) + 1):
             c = p - a - b
             yield (a, b, c)
 
