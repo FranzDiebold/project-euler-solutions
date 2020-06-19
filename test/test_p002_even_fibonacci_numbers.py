@@ -15,8 +15,8 @@ def test_fibonacci_numbers():
     from src.p002_even_fibonacci_numbers import fibonacci_numbers
 
     # act
-    excepted_fibonacci_numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    expected_fibonacci_numbers = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     fibonacci_numbers_generator = fibonacci_numbers()
-    for expected_fib in excepted_fibonacci_numbers:
+    for expected_fib in expected_fibonacci_numbers:
         # assert
         assert next(fibonacci_numbers_generator) == expected_fib

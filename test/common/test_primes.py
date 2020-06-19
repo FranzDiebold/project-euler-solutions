@@ -22,14 +22,14 @@ def test_get_prime_factors_map():
 
     # act
     actual_prime_factors_map = get_prime_factors_map(60)
-    excepted_prime_factors_map = {
+    expected_prime_factors_map = {
         2: 2,
         3: 1,
         5: 1,
     }
 
     # assert
-    assert actual_prime_factors_map == excepted_prime_factors_map
+    assert actual_prime_factors_map == expected_prime_factors_map
 
 
 @pytest.mark.parametrize('test_input,expected_result', [
