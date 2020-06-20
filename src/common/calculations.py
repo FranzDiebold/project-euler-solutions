@@ -20,6 +20,7 @@ def calculate_large_sum(number_strings: Iterable[str]) -> str:
     Returns:
         The sum of the numbers as string.
     """
+    number_strings = list(number_strings)
     large_sum = ''
     new_digit = True
     digit_idx = 1
@@ -56,20 +57,22 @@ def _multiply_large_number_and_digit(number: str, digit: int) -> str:
     return large_product
 
 
-def calculate_large_product(number1: str, number2: str) -> str:
+def calculate_large_product(number1: str, number2: str, last_n_digits_only: int = 0) -> str:
     """Multiply two large numbers given as string. The result will be a string as well."""
+    number1 = number1[-last_n_digits_only:]
+    number2 = number2[-last_n_digits_only:]
     partial_products = []
     for digit_idx, digit_value in enumerate(reversed(number2)):
         partial_product = _multiply_large_number_and_digit(number1, int(digit_value)) + \
             ('0' * digit_idx)
         partial_products.append(partial_product)
-    return calculate_large_sum(partial_products)
+    return calculate_large_sum(partial_products)[-last_n_digits_only:]
 
 
-def calculate_large_power(base: int, exponent: int) -> str:
+def calculate_large_power(base: int, exponent: int, last_n_digits_only: int = 0) -> str:
     """Calculate `base` to the power of `exponent` for large numbers given as strings."""
     base = str(base)
     power = '1'
     for _ in range(exponent):
-        power = calculate_large_product(power, base)
+        power = calculate_large_product(power, base, last_n_digits_only)[-last_n_digits_only:]
     return power
