@@ -57,3 +57,38 @@ def test_get_permutations():
         [2, 1, 0],
     ]
     assert list(actual_result) == expected_result
+
+
+@pytest.mark.parametrize('test_input_content,expected_result', [
+    ('', {}),
+    ('a', {'a': 1}),
+    ('abbccc', {'a': 1, 'b': 2, 'c': 3}),
+])
+def test_get_characters_map(test_input_content, expected_result):
+    # arrange
+    from src.common.permutations import _get_characters_map
+
+    # act
+    actual_result = _get_characters_map(test_input_content)
+
+    # assert
+    assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('test_input_a,test_input_b,expected_result', [
+    ('', '', True),
+    ('a', 'a', True),
+    ('a', 'b', False),
+    ('abc', 'acb', True),
+    ('abc', 'abcc', False),
+    (12345, 24351, True),
+])
+def test_is_permutation(test_input_a, test_input_b, expected_result):
+    # arrange
+    from src.common.permutations import is_permutation
+
+    # act
+    actual_result = is_permutation(test_input_a, test_input_b)
+
+    # assert
+    assert actual_result == expected_result
