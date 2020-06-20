@@ -3,8 +3,9 @@ Permutation utility functions.
 """
 # pylint: disable=invalid-name
 
-from typing import Iterable, List, TypeVar
+from typing import Iterable, List, TypeVar, Dict, Union
 import copy
+from collections import defaultdict
 
 from src.common.calculations import calculate_product
 
@@ -38,3 +39,17 @@ def get_permutations(sorted_items: List[T]) -> Iterable[List[T]]:
     """Get all permutations of a given list of sorted items `sorted_items`."""
     for n in range(1, get_number_of_permutations(sorted_items) + 1):
         yield get_nth_lexicographic_permutation(n, sorted_items)
+
+
+def _get_characters_map(content: str) -> Dict[str, int]:
+    """Get the characters of a given string `content` as a map,
+    i.e. `abbccc` -> `{ 'a': 1, 'b': 2, 'c': 3 }`."""
+    characters_map = defaultdict(int)
+    for character in content:
+        characters_map[character] += 1
+    return characters_map
+
+
+def is_permutation(a: Union[int, str], b: Union[int, str]) -> bool:
+    """Check if `a` is a permutation of `b`."""
+    return _get_characters_map(str(a)) == _get_characters_map(str(b))
