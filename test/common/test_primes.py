@@ -54,6 +54,18 @@ def test_is_prime(test_input, expected_result):
     assert actual_result == expected_result, f'Test failed for "{test_input}"'
 
 
+def test_get_sorted_primes_list():
+    # arrange
+    from src.common.primes import get_sorted_primes_list
+
+    # act
+    actual_result = get_sorted_primes_list(100)
+
+    # assert
+    expected_result = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+    assert actual_result == expected_result
+
+
 def test_get_primes_set():
     # arrange
     from src.common.primes import get_primes_set
