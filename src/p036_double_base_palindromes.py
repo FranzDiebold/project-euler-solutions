@@ -12,21 +12,13 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 from typing import Iterable
 
 from src.common.palindromes import is_palindromic_number
-
-
-def _get_number_in_binary(number: int) -> str:
-    """Get the binary representation of a given decimal number `number` as string."""
-    binary_representation = ''
-    while number > 0:
-        binary_representation = str(number % 2) + binary_representation
-        number //= 2
-    return binary_representation
+from src.common.numbers import decimal_to_binary
 
 
 def _get_double_base_palindromes(threshold: int) -> Iterable[int]:
     """Get numbers, which are paldindromic in base 10 and base 2."""
     for number in range(threshold):
-        if is_palindromic_number(number) and is_palindromic_number(_get_number_in_binary(number)):
+        if is_palindromic_number(number) and is_palindromic_number(decimal_to_binary(number)):
             yield number
 
 

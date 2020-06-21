@@ -55,6 +55,12 @@ def get_sorted_primes_list(threshold: int) -> List[int]:
     return [number for number in range(2, threshold) if is_prime(number)]
 
 
+# pylint: disable=invalid-name
+def get_sorted_n_digit_primes(n: int) -> List[int]:
+    """Get all primes with `n` digits as a sorted list."""
+    return [number for number in range(pow(10, n - 1), pow(10, n)) if is_prime(number)]
+
+
 def get_primes_set(threshold: int) -> Set[int]:
     """Get all prime numbers up to a threshold `threshold` (exclusive) as set."""
     return set(get_sorted_primes_list(threshold))
