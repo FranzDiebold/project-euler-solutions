@@ -16,21 +16,6 @@ import pytest
 
 
 @pytest.mark.parametrize('test_input_n,expected_result', [
-    (1, [2, 3, 5, 7]),
-    (2, [11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97])
-])
-def test_get_n_digit_primes(test_input_n, expected_result):
-    # arrange
-    from src.p049_prime_permutations import get_sorted_n_digit_primes
-
-    # act
-    actual_result = get_sorted_n_digit_primes(test_input_n)
-
-    # assert
-    assert actual_result == expected_result
-
-
-@pytest.mark.parametrize('test_input_n,expected_result', [
     (1, []),
     (2, []),
     (3, []),

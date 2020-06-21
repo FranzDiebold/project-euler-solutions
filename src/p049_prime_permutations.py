@@ -13,19 +13,10 @@ What 12-digit number do you form by concatenating the three terms in this sequen
 """
 # pylint: disable=invalid-name
 
-from typing import List, Iterable, Tuple
+from typing import Iterable, Tuple
 
-from src.common.primes import is_prime
+from src.common.primes import get_sorted_n_digit_primes
 from src.common.permutations import is_permutation
-
-
-def get_sorted_n_digit_primes(n: int) -> List[int]:
-    """Get all primes with `n` digits as a sorted list."""
-    n_digit_primes = []
-    for i in range(pow(10, n - 1), pow(10, n)):
-        if is_prime(i):
-            n_digit_primes.append(i)
-    return n_digit_primes
 
 
 def get_n_digit_prime_arithmetic_sequences(n: int) -> Iterable[Tuple[int]]:
