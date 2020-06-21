@@ -5,6 +5,8 @@
 [![Lint and Test](https://github.com/FranzDiebold/project-euler-solutions/workflows/Lint%20and%20Test/badge.svg)](https://github.com/FranzDiebold/project-euler-solutions/actions?query=workflow%3A%22Lint+and+Test%22)
 [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
 
+[![Project Euler badge franzdiebold](https://projecteuler.net/profile/franzdiebold.png)](https://projecteuler.net/profile/franzdiebold.png)
+
 ## What is [Project Euler](https://projecteuler.net)?
 
 > Project Euler is a series of *challenging mathematical/computer programming problems* that will require more than just mathematical insights to solve. Although mathematics will help you arrive at elegant and efficient methods, the use of a computer and programming skills will be required to solve most problems.
