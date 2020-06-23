@@ -11,18 +11,6 @@ Find the sum of the digits in the number 100!
 """
 
 
-def test_get_large_factorial():
-    # arrange
-    from src.p020_factorial_digit_sum import get_large_factorial
-
-    # act
-    actual_result = get_large_factorial(10)
-
-    # assert
-    expected_result = '3628800'
-    assert actual_result == expected_result
-
-
 def test_get_sum_of_digits():
     # arrange
     from src.p020_factorial_digit_sum import get_sum_of_digits

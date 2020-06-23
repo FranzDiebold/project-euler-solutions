@@ -95,3 +95,37 @@ def test_calculate_large_power_with_last_n_digits_only():
     # 8^9 = 134.217.728
     expected_result = '17728'
     assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('test_input_number,expected_result', [
+    (10, '3628800'),
+    (0, '1'),
+])
+def test_calculate_large_factorial(test_input_number, expected_result):
+    # arrange
+    from src.p020_factorial_digit_sum import calculate_large_factorial
+
+    # act
+    actual_result = calculate_large_factorial(test_input_number)
+
+    # assert
+    assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('test_input_n,test_input_k,expected_result', [
+    (5, 3, 10),
+    (23, 10, 1144066),
+    (52, 5, 2598960),
+    (100, 0, 1),
+    (100, 100, 1),
+    (100, 99, 100),
+])
+def test_calculate_binomial_coefficient(test_input_n, test_input_k, expected_result):
+    # arrange
+    from src.common.calculations import calculate_binomial_coefficient
+
+    # act
+    actual_result = calculate_binomial_coefficient(test_input_n, test_input_k)
+
+    # assert
+    assert actual_result == expected_result
