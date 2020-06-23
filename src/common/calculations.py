@@ -76,3 +76,33 @@ def calculate_large_power(base: int, exponent: int, last_n_digits_only: int = 0)
     for _ in range(exponent):
         power = calculate_large_product(power, base, last_n_digits_only)[-last_n_digits_only:]
     return power
+
+
+def calculate_large_factorial(number: int) -> str:
+    """Calculate the factorial for a given number `number`.
+
+    Returns:
+        factorial: Factorial number as string.
+    """
+    factorial = '1'
+    for i in range(1, number + 1):
+        # This would not be needed in Python3 any more, since there is no maximum integer.
+        factorial = calculate_large_product(factorial, str(i))
+    return factorial
+
+
+# pylint: disable=invalid-name
+def calculate_binomial_coefficient(n: int, k: int) -> int:
+    """Calculate the binomial coefficient (n over k)."""
+    if n < 0:
+        raise ValueError('`n` must not be negative!')
+    if k < 0:
+        raise ValueError('`k` must not be negative!')
+    if k > n:
+        return 0
+
+    binomial_coefficient = 1
+    for i in range(k):
+        binomial_coefficient *= (n - i)
+        binomial_coefficient /= (1 + i)
+    return round(binomial_coefficient)

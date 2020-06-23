@@ -1,6 +1,6 @@
 # [Project Euler](https://projecteuler.net) Solutions
 
-[![solved: 52 problems](https://img.shields.io/badge/solved-52_problems-f93.svg)](./src)
+[![solved: 53 problems](https://img.shields.io/badge/solved-53_problems-f93.svg)](./src)
 ![Python: 3.8](https://img.shields.io/badge/Python-3.8-3776ab.svg)
 [![Lint and Test](https://github.com/FranzDiebold/project-euler-solutions/workflows/Lint%20and%20Test/badge.svg)](https://github.com/FranzDiebold/project-euler-solutions/actions?query=workflow%3A%22Lint+and+Test%22)
 [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
