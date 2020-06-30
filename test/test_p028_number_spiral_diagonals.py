@@ -19,10 +19,10 @@ What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed 
 
 def test_get_spiral_diagonal_values_sum():
     # arrange
-    from src.p028_number_spiral_diagonals import get_spiral_diagonal_values
+    from src.p028_number_spiral_diagonals import get_spiral_diagonal_values_sum
 
     # act
-    actual_result = sum(get_spiral_diagonal_values(5))
+    actual_result = get_spiral_diagonal_values_sum(5)
 
     # assert
     expected_result = 101
