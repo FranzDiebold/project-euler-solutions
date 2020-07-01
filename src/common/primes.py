@@ -2,11 +2,11 @@
 Prime number utility functions.
 """
 
-from typing import Iterator, Dict, List, Set
+from typing import Iterable, Dict, List, Set, Optional
 import math
 
 
-def get_prime_factors(number: int) -> Iterator[int]:
+def get_prime_factors(number: int) -> Iterable[int]:
     """Get prime factors of a given number `number` as generator."""
     if number < 0:
         raise ValueError('Negative numbers are not supported.')
@@ -50,9 +50,21 @@ def is_prime(number: int) -> bool:
         return False
 
 
+def get_primes(threshold: Optional[int] = None) -> Iterable[int]:
+    """Return all prime numbers as an increasing iterable."""
+    yield 2
+    number = 3
+    while True:
+        if is_prime(number):
+            yield number
+        number += 2
+        if threshold and number >= threshold:
+            break
+
+
 def get_sorted_primes_list(threshold: int) -> List[int]:
     """Get all prime numbers up to a threshold `threshold` (exclusive) as a sorted list."""
-    return [number for number in range(2, threshold) if is_prime(number)]
+    return list(get_primes(threshold))
 
 
 # pylint: disable=invalid-name
@@ -63,4 +75,4 @@ def get_sorted_n_digit_primes(n: int) -> List[int]:
 
 def get_primes_set(threshold: int) -> Set[int]:
     """Get all prime numbers up to a threshold `threshold` (exclusive) as set."""
-    return set(get_sorted_primes_list(threshold))
+    return set(get_primes(threshold))
