@@ -31,6 +31,7 @@ import pytest
     (1906, False),
     (1907, False),
     (1908, True),
+    (2000, True),
 ])
 def test_is_leap_year(test_input, expected_result):
     # arrange
