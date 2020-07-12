@@ -54,10 +54,10 @@ def test_find_max_complete_subgraph_1():
         9: set(),
         10: {5}
     }
-    node = 1
+    edge = (1, 4)
 
     # act
-    actual_result = _find_max_complete_subgraph(directed_graph, node)
+    actual_result = _find_max_complete_subgraph(directed_graph, edge)
 
     # assert
     expected_result = {1, 4, 5, 6}
@@ -78,10 +78,10 @@ def test_find_max_complete_subgraph_2():
         7: {5},
         8: {6},
     }
-    node = 3
+    edge = (3, 5)
 
     # act
-    actual_result = _find_max_complete_subgraph(directed_graph, node)
+    actual_result = _find_max_complete_subgraph(directed_graph, edge)
 
     # assert
     expected_result = {3, 5, 6}
@@ -100,15 +100,16 @@ def test_find_max_complete_subgraph_3():
         5: {4, 6},
         6: {1, 2, 3, 4, 5},
     }
-    node = 6
+    edge = (6, 2)
 
     # act
-    actual_result = _find_max_complete_subgraph(directed_graph, node)
+    actual_result = _find_max_complete_subgraph(directed_graph, edge)
 
     # assert
     expected_result_size = 3
     assert len(actual_result) == expected_result_size
     assert 6 in actual_result
+    assert 2 in actual_result
 
 
 def test_get_prime_pairs_sets():

@@ -14,6 +14,7 @@ for which any two primes concatenate to produce another prime.
 
 from typing import Iterable, Tuple, Dict, Set
 from collections import defaultdict
+import time
 
 from src.common.primes import get_primes, is_prime
 
@@ -57,16 +58,18 @@ def __find_max_complete_subgraph_recursive(
     return max_complete_subgraph
 
 
-def _find_max_complete_subgraph(directed_graph: Dict[int, Set[int]], node: int) -> Set[int]:
+def _find_max_complete_subgraph(
+        directed_graph: Dict[int, Set[int]], edge: Tuple[int, int]
+) -> Set[int]:
     """
     Find the maximum complete subgraph in the given directed graph `directed_graph`,
-    in which node `node` is part of.
+    in which the edge `edge` is part of.
     """
     relevant_nodes = {
-        current_node for current_node in directed_graph[node]
-        if node in directed_graph[current_node]
+        current_node for current_node in (directed_graph[edge[0]] & directed_graph[edge[1]])
+        if edge[0] in directed_graph[current_node] and edge[1] in directed_graph[current_node]
     }
-    return __find_max_complete_subgraph_recursive(directed_graph, relevant_nodes, {node})
+    return __find_max_complete_subgraph_recursive(directed_graph, relevant_nodes, set(edge))
 
 
 def get_prime_pairs_sets(size: int) -> Iterable[Set[int]]:
@@ -78,7 +81,7 @@ def get_prime_pairs_sets(size: int) -> Iterable[Set[int]]:
     for source, sink in get_directed_prime_pairs():
         directed_graph[source].add(sink)
         if source in directed_graph[sink]:
-            complete_subgraph = _find_max_complete_subgraph(directed_graph, source)
+            complete_subgraph = _find_max_complete_subgraph(directed_graph, (source, sink))
             if len(complete_subgraph) == size:
                 yield complete_subgraph
 
@@ -86,11 +89,14 @@ def get_prime_pairs_sets(size: int) -> Iterable[Set[int]]:
 def main() -> None:
     """Main function."""
     set_size = 5
+    start_time = time.time()
     prime_pairs_sets = get_prime_pairs_sets(set_size)
     prime_pairs_set = next(prime_pairs_sets)
+    end_time = time.time()
     print(f'The lowest sum for a set of {set_size} primes for which any two primes ' \
           f'concatenate to produce another prime is {sum(prime_pairs_set)}.')
     print(f'The prime pairs set is {prime_pairs_set}.')
+    print(f'(Took {(end_time - start_time):.2f} seconds.)')
 
 
 if __name__ == '__main__':
