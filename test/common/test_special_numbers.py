@@ -5,6 +5,24 @@ Special numbers utility functions.
 import pytest
 
 
+@pytest.mark.parametrize('test_input_n,expected_result', [
+    (1, 1),
+    (2, 3),
+    (3, 6),
+    (4, 10),
+    (5, 15),
+])
+def test_get_triangle_number(test_input_n, expected_result):
+    # arrange
+    from src.common.special_numbers import get_triangle_number
+
+    # act
+    actual_result = get_triangle_number(test_input_n)
+
+    # assert
+    assert actual_result == expected_result
+
+
 @pytest.mark.parametrize('test_input_number,expected_result', [
     (0, True),
     (1, True),
@@ -27,6 +45,25 @@ def test_is_triangle_number(test_input_number, expected_result):
 
     # act
     actual_result = is_triangle_number(test_input_number)
+
+    # assert
+    assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('test_input_n,expected_result', [
+    (1, 1),
+    (2, 4),
+    (3, 9),
+    (4, 16),
+    (5, 25),
+    (6, 36),
+])
+def test_get_square_number(test_input_n, expected_result):
+    # arrange
+    from src.common.special_numbers import get_square_number
+
+    # act
+    actual_result = get_square_number(test_input_n)
 
     # assert
     assert actual_result == expected_result
@@ -119,6 +156,42 @@ def test_is_hexagonal_number(test_input_number, expected_result):
 
     # act
     actual_result = is_hexagonal_number(test_input_number)
+
+    # assert
+    assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('test_input_n,expected_result', [
+    (1, 1),
+    (2, 7),
+    (3, 18),
+    (4, 34),
+    (5, 55),
+])
+def test_get_heptagonal_number(test_input_n, expected_result):
+    # arrange
+    from src.common.special_numbers import get_heptagonal_number
+
+    # act
+    actual_result = get_heptagonal_number(test_input_n)
+
+    # assert
+    assert actual_result == expected_result
+
+
+@pytest.mark.parametrize('test_input_n,expected_result', [
+    (1, 1),
+    (2, 8),
+    (3, 21),
+    (4, 40),
+    (5, 65),
+])
+def test_get_octagonal_number(test_input_n, expected_result):
+    # arrange
+    from src.common.special_numbers import get_octagonal_number
+
+    # act
+    actual_result = get_octagonal_number(test_input_n)
 
     # assert
     assert actual_result == expected_result
