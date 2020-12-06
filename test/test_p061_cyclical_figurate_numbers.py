@@ -32,7 +32,7 @@ import pytest
     (1337, '13'),
     (1234, '12'),
 ])
-def test_get_number_prefix(test_input_number,expected_result):
+def test_get_number_prefix(test_input_number, expected_result):
     # arrange
     from src.p061_cyclical_figurate_numbers import get_number_prefix
 
@@ -48,7 +48,7 @@ def test_get_number_prefix(test_input_number,expected_result):
     (1337, '37'),
     (1234, '34'),
 ])
-def test_get_number_suffix(test_input_number,expected_result):
+def test_get_number_suffix(test_input_number, expected_result):
     # arrange
     from src.p061_cyclical_figurate_numbers import get_number_suffix
 
